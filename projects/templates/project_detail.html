@@ -16,6 +16,9 @@
         <br>
         <h5>Category:</h5>
         <p>{{ project.get_topic_display }}</p>
+        <br>
+        <h5>Source Code:</h5>
+        <a href="{{ project.source_code }}">GitHub Repository</a>
     </div>
 </div>
 {% endblock %}
