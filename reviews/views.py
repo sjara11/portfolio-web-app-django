@@ -10,7 +10,7 @@ def reviews_index(request):
     }
     return render(request, "reviews_index.html", context)
 
-def review_upload(request):
+def review_create(request):
     review_form = ReviewForm()
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
