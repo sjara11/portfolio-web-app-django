@@ -16,6 +16,7 @@ def review_create(request):
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
             review = Review(
+                project=review_form.cleaned_data["project"],
                 title=review_form.cleaned_data["title"],
                 author=review_form.cleaned_data["author"],
                 body=review_form.cleaned_data["body"],
@@ -25,7 +26,7 @@ def review_create(request):
     context = {
         'review_form': review_form
     }
-    return render(request, 'reviews/create_post_review.html', context=context)
+    return render(request, "review_create.html", context=context)
 
 def review_detail(request, pk):
     review = Review.objects.get(pk=pk)

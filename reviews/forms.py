@@ -1,6 +1,14 @@
 from django import forms
+import projects
 
 class ReviewForm(forms.Form):
+    project = forms.ModelChoiceField(
+        queryset=projects.models.Project.objects.all(), 
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Project to Review"
+        })
+    )
     title = forms.CharField(
         max_length=225,
         widget=forms.TextInput(attrs={
