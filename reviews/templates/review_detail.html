@@ -2,10 +2,16 @@
 {% block page_content %}
 <div class="col-md-8 offset-md-2">
     <h1>{{ review.title }}</h1>
+    <h4>Reviewed by {{ review.author }}</h4>
     <small>
-        {{ review.created_on.date }} |&nbsp;
+        {{ review.created_on.date }}
     </small>
+    <br>
+    <br>
+    <h4>Content:</h4>
     <p>{{ review.body | linebreaks }}</p>
+    <br>
+    <br>
     <h3>Leave a comment:</h3>
     <form action="/reviews/{{ review.pk }}/" method="post">
         {% csrf_token %}
