@@ -15,3 +15,6 @@ class Project(models.Model):
     tech_stack = models.CharField(max_length=20)
     source_code = models.URLField(max_length=200)
     image = models.FilePathField(path='/img')
+
+    def __str__(self):
+        return (self.title)
