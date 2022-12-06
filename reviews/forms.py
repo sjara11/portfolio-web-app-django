@@ -4,10 +4,8 @@ import projects
 class ReviewForm(forms.Form):
     project = forms.ModelChoiceField(
         queryset=projects.models.Project.objects.all(), 
-        widget=forms.TextInput(attrs={
-            "class": "form-control",
-            "placeholder": "Project to Review"
-        })
+        widget=forms.Select(choices=projects.models.Project.objects.all(),
+       )
     )
     title = forms.CharField(
         max_length=225,
