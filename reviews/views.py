@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from reviews.models import Review, Comment
 from .forms import CommentForm, ReviewForm
 
@@ -22,7 +22,7 @@ def review_create(request):
                 body=review_form.cleaned_data["body"],
             )
             review.save()
-            #return redirect('home')
+            return redirect('/reviews/')
     context = {
         'review_form': review_form
     }
@@ -42,6 +42,8 @@ def review_detail(request, pk):
                 review=review
             )
             comment.save()
+            
+    # TODO(sjara11): Clear the author and body after creating a comment over a review.
 
     context = {
         "review": review,
